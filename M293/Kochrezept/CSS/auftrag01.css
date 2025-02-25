@@ -1,0 +1,72 @@
+body {
+    background: linear-gradient(0deg, rgb(6, 43, 82) 0%, rgb(58, 70, 85) 27%, rgb(84, 106, 107) 60%, rgba(24, 61, 100, 0.941) 100%);
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    color: aliceblue;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-family: 'Franklin Gothic Medium';
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    font-size: 1.5rem;
+    color: aliceblue;
+}
+
+p, ul {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+li {
+    font-family: 'Franklin Gothic Medium';
+    color: aliceblue;
+    font-size: 133%;
+}
+
+table {
+    width: 100%;
+    margin-top: 40px;
+    border-spacing: 20px;
+}
+
+td {
+    vertical-align: top;
+}
+
+.image-cell {
+    text-align: center;
+}
+
+.image {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    margin: 10px 0;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+    color: rgb(131, 236, 255);
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(215, 250, 255);
+}
