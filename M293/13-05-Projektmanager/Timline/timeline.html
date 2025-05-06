@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projekt Timeline</title>
+    <link rel="stylesheet" href="timeline.css">
+</head>
+<body>
+    <a href="/manager.html"><div class="current-date"><h2>Start</h2></div></a>
+    <div class="timeline">
+        <div class="container left">
+            <div class="content">
+                <h2>Mediagrid</h2>
+                <img src="bilder/projektMediagrid.png" alt="Projekt 1">
+                <p class="description">eine Webseite mit medien.</p>
+                <a href="01-11-MediaGrid/Mediagrid.html">Mehr erfahren</a>
+            </div>
+        </div>
+        
+        <div class="container right">
+            <div class="content">
+                <h2>CubeRenderer</h2>
+                <img src="bilder/cubetrans.png" alt="Projekt 2">
+                <p class="description">ein 3d simulation von einem cube</p>
+                <a href="#">Mehr erfahren</a>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <h2>TheGameOfLife</h2>
+                <img src="bilder/gameOflife.png" alt="Projekt 2">
+                <p class="description">Simuliert das zeroplayer game <br> von Conways game of life in Java</p>
+                <br>
+                <a href="https://github.com/Vitus-Kaminski/Blj2024-vit-kam/blob/main/Dokumentation/TheGameOfLife-Vitus-Kaminski-Dokumentation.md">Mehr erfahren</a>
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <h2>Rucksack</h2>
+                <img src="bilder/ruck.png" alt="Projekt 7">
+                <p class="description"> Ein Java Projekt das einem Memory game <br>
+                     ich packe nachempfunden ist.</p>
+                <a href="https://github.com/Vitus-Kaminski/Blj2024-vit-kam/tree/main/Java/2025/03-05-Rucksack">Mehr erfahren</a>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <h2>Snackmaschine</h2>
+                <img src="bilder/GUIBlau.png" alt="Projekt 3">
+                <p class="description">Beschreibung des Projekts 1.</p>
+                <a href="">Mehr erfahren</a>
+            </div>
+        </div>
+        
+        <div class="container right">
+            <div class="content">
+                <h2>SandSimulation</h2>
+                <img src="bilder/sandic.png" alt="Projekt 4">
+                <p class="description">Simulation von Sand in Java</p>
+                <a href="https://github.com/Vitus-Kaminski/Blj2024-vit-kam/tree/main/Java/2025/08-09-LDMSAND">Mehr erfahren</a>
+            </div>
+        </div>
+      
+        <div class="container left">
+            <div class="content">
+                <h2>Mediagrid</h2>
+                <img src="bilder/projektMediagrid - Kopie.png" alt="Projekt 5">
+                <p class="description">Beschreibung des Projekts 1.</p>
+                <a href="01-11-MediaGrid/Mediagrid.html">Mehr erfahren</a>
+            </div>
+            
+        </div>
+        
+        <div class="container right">
+            <div class="content">
+                <h2>Aquarium</h2>
+                <img src="bilder/glas.png" alt="Projekt 6">
+                <p class="description"> Ein Java Projekt das in der Konsole
+                     ein Aquarium simuliert</p>
+                <a href="https://github.com/Vitus-Kaminski/Blj2024-vit-kam/tree/main/Java/2025/02-04-Aquarium">Mehr erfahren</a>
+            </div>
+        </div>
+    
+        <div class="container left">
+            <div class="content">
+                <h2>ToDoManager</h2>
+                <img src="bilder/todo.png" alt="Projekt 8">
+                <p class="description"> Dieses Java projekt ist ein Task Manager
+                     und listet aufgaben</p>
+                <a href="https://github.com/Vitus-Kaminski/Blj2024-vit-kam/tree/main/Java/2025/05-06-ToDoManager">Mehr erfahren</a>
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <h2>TextAnalyzer</h2>
+                <img src="bilder/text.png" alt="Projekt 8">
+                <p class="description"> Dieses Java projekt analisiert Text und
+                     wertet diesen aus.</p>
+                <a href="https://github.com/Vitus-Kaminski/Blj2024-vit-kam/tree/main/Java/2025/11-14-Textanalyze">Mehr erfahren</a>
+            </div>
+        </div>
+        
+       
+    </div>
+     <div class="current-date"><h2>Now</h2></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const elements = document.querySelectorAll(".content");
+            elements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = "translateY(50px)";
+            });
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.transition = "all 0.5s ease-in-out";
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = "translateY(0)";
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            elements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>ProjektManager</title>
+    <style>
+        @keyframes wave-left {
+            0%, 100% { transform: rotate(0deg); }
+            20% { transform: rotate(5deg); }
+            40% { transform: rotate(8deg); }
+            60% { transform: rotate(6deg); }
+            80% { transform: rotate(3deg); }
+        }
+
+        @keyframes wave-right {
+            0%, 100% { transform: rotate(0deg); }
+            20% { transform: rotate(-5deg); }
+            40% { transform: rotate(-8deg); }
+            60% { transform: rotate(-6deg); }
+            80% { transform: rotate(-3deg); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .arm-left {
+            animation: wave-left 2s ease-in-out infinite;
+            transform-origin: top left;
+        }
+
+        .arm-right {
+            animation: wave-right 2s ease-in-out infinite;
+            transform-origin: top right;
+        }
+
+        .character {
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .curved-arm {
+            border-radius: 15px;
+        }
+
+        .ball {
+            transition: transform 1s ease; /* Langsame Vergrößerung */
+            position: relative;
+            z-index: 2;
+        }
+
+        .ball:hover {
+            background-color: white;
+          
+        }
+
+        .curved-leg {
+            border-radius: 25px;
+        }
+
+        .eye {
+            transition: all 0.3s ease;
+        }
+
+        .eye:hover {
+            transform: scale(1.2);
+            background-color: white;
+        }
+
+        .character {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Weißer Kreis, der bei Klick angezeigt wird */
+        .circle-effect {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+            transform: scale(0);
+            animation: expand-circle 2s forwards;
+        }
+
+        @keyframes expand-circle {
+            0% { transform: scale(0); }
+            50% { transform: scale(1); }
+            100% { transform: scale(0); }
+        }
+
+    </style>
+</head>
+<body class="bg-gray-900 flex items-center justify-center min-h-screen">
+    <div class="relative character">
+        <!-- Body -->
+        <div class="bg-orange-500 rounded-full w-64 h-64 flex items-center justify-center relative">
+            <!-- Face -->
+            <div class="absolute top-1/3 flex flex-col items-center">
+                <div class="flex space-x-4">
+                    <!-- Eyes -->
+                    <div class="eye bg-black w-6 h-6 rounded-full"></div>
+                    <div class="eye bg-black w-6 h-6 rounded-full"></div>
+                </div>
+                <!-- Cheeks -->
+                <div class="flex space-x-4 mt-2">
+                    <div class="bg-red-400 w-4 h-2 rounded-full"></div>
+                    <div class="bg-red-400 w-4 h-2 rounded-full"></div>
+                </div>
+                <!-- Mouth -->
+                <div class="bg-black w-12 h-2 rounded-full mt-2"></div>
+            </div>
+            <!-- Left Arm -->
+            <div class="absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div class="arm-left bg-orange-500 w-40 h-8 curved-arm flex items-center justify-start"></div>
+            </div>
+            <!-- Right Arm -->
+            <div class="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
+                <div class="arm-right bg-orange-500 w-40 h-8 curved-arm flex items-center justify-end">
+                    <!-- Ball -->
+                    <div class="ball bg-gray-200 w-12 h-12 rounded-full mr-2" id="ball"></div>
+                </div>
+            </div>
+            <!-- Left Leg -->
+            <div class="absolute left-1/4 bottom-0 transform -translate-x-1/2 translate-y-1/2">
+                <div class="bg-orange-500 w-12 h-40 curved-leg"></div>
+            </div>
+            <!-- Right Leg -->
+            <div class="absolute right-1/4 bottom-0 transform translate-x-1/2 translate-y-1/2">
+                <div class="bg-orange-500 w-12 h-40 curved-leg"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ball = document.getElementById('ball');
+
+        ball.addEventListener('click', function() {
+            // Kreis hinzufügen
+            const circle = document.createElement('div');
+            circle.classList.add('circle-effect');
+            ball.appendChild(circle);
+
+            // Vergrößerungseffekt für den Ball
+            ball.style.transform = 'scale(1)'; // Ball vergrößern
+        });
+    </script>
+</body>
+</html>

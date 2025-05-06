@@ -1,0 +1,3 @@
+### Snackautomat
+
+**Beschreibung:** Eine digitale Simulation eines Snackautomaten, der den Kaufprozess realistisch nachbildet. Das Projekt enthält eine grafische Benutzeroberfläche, über die Nutzer Snacks auswählen, Geld einwerfen und Rückgeld erhalten können. Zudem verwaltet das Programm die Bestände der verfügbaren Produkte und simuliert den realen Ablauf einer Snackmaschine. Durch den Einsatz von objektorientierter Programmierung wird sichergestellt, dass alle Komponenten modular und erweiterbar sind. Diese Anwendung ist ein praxisnahes Beispiel für die Modellierung realer Automaten und kann für Schulungszwecke im Bereich Softwareentwicklung und Automatensteuerung eingesetzt werden.

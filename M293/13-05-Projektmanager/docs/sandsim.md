@@ -1,0 +1,3 @@
+### SandSimulation
+
+**Beschreibung:** Die SandSimulation visualisiert das physikalische Verhalten von Sandpartikeln in Java. Hierbei werden Schwerkraft, Kollisionen und Interaktionen mit anderen Objekten simuliert. Das Projekt demonstriert, wie Sandkörner sich realistisch anhäufen, verteilen und auf Hindernisse reagieren. Durch Algorithmen zur Partikeldynamik wird das Verhalten des Sandes in Echtzeit berechnet und grafisch dargestellt. Diese Simulation kann als Grundlage für weiterführende physikalische Modelle verwendet werden, etwa zur Analyse von granularen Materialien oder für Spieleentwicklungen, die realistische Umweltsimulationen erfordern.

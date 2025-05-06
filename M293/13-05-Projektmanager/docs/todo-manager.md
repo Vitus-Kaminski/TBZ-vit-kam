@@ -1,0 +1,3 @@
+### ToDoManager
+
+**Beschreibung:** Ein praktischer Aufgabenmanager in Java, der Nutzern hilft, ihre Aufgaben effizient zu verwalten und zu priorisieren. Das Programm ermöglicht das Erstellen, Bearbeiten und Löschen von To-Dos sowie das Setzen von Deadlines. Dank einer übersichtlichen Benutzeroberfläche können Nutzer schnell ihre anstehenden Aufgaben einsehen und nach Dringlichkeit oder Kategorie sortieren. Der ToDoManager ist modular aufgebaut und kann um zusätzliche Funktionen wie Erinnerungen oder Synchronisation mit externen Kalendern erweitert werden. Dieses Projekt ist ideal für Personen, die ihre täglichen Aufgaben strukturiert planen möchten.

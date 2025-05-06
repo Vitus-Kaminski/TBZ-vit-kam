@@ -1,0 +1,3 @@
+### CubeRenderer
+
+**Beschreibung:** Dieses Projekt ist eine 3D-Simulation eines Würfels, die grundlegende Rendertechniken visualisiert. Der CubeRenderer ermöglicht es, verschiedene Transformationen am Würfel vorzunehmen, darunter Rotation, Skalierung und Perspektivenänderungen. Dabei kommen grundlegende Grafikroutinen zum Einsatz, die die visuelle Darstellung von 3D-Objekten im Raum veranschaulichen. Das Projekt wurde entwickelt, um die Funktionsweise von Rendering-Engines zu erforschen und grafische Darstellungen in Echtzeit zu simulieren. Der Nutzer kann durch verschiedene Eingaben die Position und Bewegung des Würfels beeinflussen, wodurch ein interaktives Erlebnis entsteht.

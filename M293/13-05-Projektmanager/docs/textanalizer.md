@@ -1,0 +1,3 @@
+### TextAnalyzer
+
+**Beschreibung:** Der TextAnalyzer ist ein leistungsstarkes Tool zur Analyse und Auswertung von Texten in Java. Er bietet Funktionen wie das Zählen von Wörtern, Sätzen und Zeichen sowie das Identifizieren von Schlüsselwörtern. Darüber hinaus analysiert das Programm die Häufigkeit bestimmter Begriffe und kann Statistiken zur Textstruktur generieren. Dies macht es zu einem wertvollen Werkzeug für Linguisten, Autoren und Datenanalysten. Durch den modularen Aufbau kann der TextAnalyzer leicht erweitert werden, beispielsweise um Funktionen zur Sentiment-Analyse oder automatische Textklassifikation.

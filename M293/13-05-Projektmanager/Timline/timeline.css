@@ -1,0 +1,190 @@
+/* Allgemeine Stile */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #474e5d;
+  font-family: Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Container */
+.container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 100%;
+  transition: transform 0.7s ease-in-out;
+}
+
+.container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  border: 4px solid #96a3ed;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.container.left {
+  left: -50%;
+}
+
+.container.right {
+  left: 50%;
+}
+
+.container.left::before, .container.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent rgb(255, 255, 255) transparent transparent;
+}
+
+.container.right::before {
+  left: 30px;
+  border-width: 10px 10px 10px 0;
+}
+
+.container.right::after {
+  left: -16px;
+}
+
+/* Content */
+.content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effekt */
+.content:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Beschreibung mit sanfter Einblendung */
+.description {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out;
+}
+
+.content:hover .description {
+  opacity: 1;
+  height: auto;
+}
+
+/* Bildgröße fixieren */
+.content img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.content img {
+  width: 14rem;
+  height: 10rem;
+  object-fit: cover;
+}
+
+.content a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: #666eb6;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.content a:hover {
+  background: #8e98ef;
+}
+
+/* Aktuelles Datum Element */
+.current-date {
+  padding: 20px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(-0px);
+  animation: fadeInUp 1.0s ease-in-out 0.1s forwards;
+}
+
+/* Responsive Anpassungen */
+@media screen and (max-width: 800px) {
+  .timeline::after {
+      left: 31px;
+  }
+  .container {
+      width: 100%;
+      padding-left: 70px;
+      padding-right: 25px;
+  }
+  .container.left, .container.right {
+      left: 0;
+  }
+  .container::before {
+      left: 60px;
+  }
+  .container.left::after, .container.right::after {
+      left: 15px;
+  }
+}

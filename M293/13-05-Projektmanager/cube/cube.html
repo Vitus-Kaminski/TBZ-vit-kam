@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Cube Renderer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+       *{background-color: black;}
+        body { margin: 0; overflow: hidden; }
+        canvas { display: block; }
+        h3{color: #ffffff; justify-self: center;}
+    </style>
+</head>
+<body>
+
+   
+    <h3>Cube<a href="/manager.html"> Back</a></h3>
+    <footer><h3>Controls: W A S D and 1 2 3 4 5 6</h3></footer>
+    <script>
+
+        
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        let roty = 0.0105;
+        let rotx = 0.005;
+        let rotz = 0.00;
+        let size = 1;
+        let edgesVisible = true;
+        let transparent = false;
+
+        // Materialien
+        const materials = [
+            new THREE.MeshBasicMaterial({ color: 0xff0000, transparent: transparent, opacity: 1 }),
+            new THREE.MeshBasicMaterial({ color: 0x00ff00, transparent: transparent, opacity: 1 }),
+            new THREE.MeshBasicMaterial({ color: 0x0000ff, transparent: transparent, opacity: 1 }),
+            new THREE.MeshBasicMaterial({ color: 0xffff00, transparent: transparent, opacity: 1 }),
+            new THREE.MeshBasicMaterial({ color: 0xffa500, transparent: transparent, opacity: 1 }),
+            new THREE.MeshBasicMaterial({ color: 0x00ffff, transparent: transparent, opacity: 1 })
+        ];
+
+        const geometry = new THREE.BoxGeometry(size, size, size);
+        const cube = new THREE.Mesh(geometry, materials);
+        scene.add(cube);
+
+        const edges = new THREE.EdgesGeometry(geometry);
+        const lineMaterial = new THREE.LineBasicMaterial({ color: 0x000000 });
+        const wireframe = new THREE.LineSegments(edges, lineMaterial);
+        scene.add(wireframe);
+
+        camera.position.z = 3;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            cube.rotation.x += rotx;
+            cube.rotation.y += roty;
+            cube.rotation.z += rotz;
+            wireframe.rotation.x = cube.rotation.x;
+            wireframe.rotation.y = cube.rotation.y;
+            wireframe.rotation.z = cube.rotation.z;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        });
+
+        document.addEventListener('keydown', (event) => {
+            switch (event.key) {
+                case 'w': cube.position.y += 0.1; wireframe.position.y += 0.1; break;
+                case 's': cube.position.y -= 0.1; wireframe.position.y -= 0.1; break;
+                case 'a': cube.position.x -= 0.1; wireframe.position.x -= 0.1; break;
+                case 'd': cube.position.x += 0.1; wireframe.position.x += 0.1; break;
+                case 'v': edgesVisible = !edgesVisible;
+                          wireframe.visible = edgesVisible;
+                          break;
+                case 't': transparent = !transparent;
+                          materials.forEach(mat => mat.transparent = transparent);
+                          materials.forEach(mat => mat.opacity = transparent ? 0.5 : 1);
+                          break;
+                
+                case '1': roty += 0.005;  break;
+                case '2': roty -= 0.005; break;
+                case '3': rotx -= 0.005; break;
+                case '4': rotx += 0.005;  break;
+                case '5': rotz -= 0.005; break;
+                case '6': rotz += 0.005;  break;
+            }
+        });
+
+        let lastMouseX, lastMouseY;
+        let isDragging = false;
+
+        document.addEventListener('mousedown', (event) => {
+            isDragging = true;
+            lastMouseX = event.clientX;
+            lastMouseY = event.clientY;
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        document.addEventListener('mousemove', (event) => {
+            if (!isDragging) return;
+            let deltaX = event.clientX - lastMouseX;
+            let deltaY = event.clientY - lastMouseY;
+            cube.rotation.y += deltaX * 0.01;
+            cube.rotation.x += deltaY * 0.01;
+            wireframe.rotation.y = cube.rotation.y;
+            wireframe.rotation.x = cube.rotation.x;
+            lastMouseX = event.clientX;
+            lastMouseY = event.clientY;
+        });
+
+        document.addEventListener('wheel', (event) => {
+            size += event.deltaY * -0.001;
+            size = Math.max(0.1, Math.min(5, size));
+            cube.scale.set(size, size, size);
+            wireframe.scale.set(size, size, size);
+        });
+    </script>
+</body>
+
+</html>

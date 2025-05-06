@@ -1,0 +1,3 @@
+### Aquarium
+
+**Beschreibung:** Dieses Konsolenprogramm simuliert ein virtuelles Aquarium in Java. Die Fische bewegen sich zufällig im Wasser, interagieren miteinander und reagieren auf Umwelteinflüsse. Die Simulation bietet eine einfache, aber anschauliche Darstellung eines Ökosystems und ist eine interessante Einführung in das Thema künstliches Leben. Durch verschiedene Parameter können Nutzer die Anzahl der Fische, ihre Bewegungsmuster und ihr Verhalten beeinflussen. Dieses Projekt kann als Lernhilfe für Biologie- und Informatikunterricht genutzt werden, da es sowohl ökologische Konzepte als auch programmiertechnische Herausforderungen kombiniert.
